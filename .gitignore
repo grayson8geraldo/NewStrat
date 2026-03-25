@@ -9,3 +9,5 @@ build/
 venv/
 trade_log.csv
 equity_curve.png
+paper_state.json
+paper_trading.log
