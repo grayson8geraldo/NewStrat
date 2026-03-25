@@ -7,3 +7,5 @@ dist/
 build/
 .venv/
 venv/
+trade_log.csv
+equity_curve.png
