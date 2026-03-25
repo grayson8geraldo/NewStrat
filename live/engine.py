@@ -69,7 +69,20 @@ def run_live_paper(
     print(f"  Timeframes: HTF={cfg.htf}  MTF={cfg.mtf}  LTF={cfg.ltf}")
     print(f"  Risk:       {cfg.risk_percent}% per trade   R:R = 1:{cfg.reward_ratio}")
     print(f"  Balance:    ${initial_balance:,.2f} (virtual)")
+    print(f"  Risk/trade: ${initial_balance * cfg.risk_percent / 100:,.2f}")
     print(f"  Poll:       every {poll_interval}s")
+
+    if initial_balance < 500 and cfg.risk_percent < 2:
+        print()
+        print("  WARNING: Balance < $500 with risk < 2%.")
+        print("  Minimum lot sizes may prevent trade execution.")
+        print("  Consider --risk 3 or higher for small accounts.")
+
+    if cfg.risk_percent > 5:
+        print()
+        print("  WARNING: Risk > 5% per trade is very aggressive.")
+        print("  A string of losses can wipe out the account quickly.")
+
     print("=" * 60)
     print("  Press Ctrl+C to stop\n")
 

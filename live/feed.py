@@ -68,7 +68,7 @@ for pair in _FOREX_MAP:
         "pip_size": 0.01 if is_jpy else 0.0001,
         "tick_value": 8.0 if is_jpy else 10.0,  # approx $ per pip per standard lot
         "volume_step": 0.01,
-        "volume_min": 0.01,
+        "volume_min": 0.01,   # micro lots (0.01 = 1000 units)
         "volume_max": 100.0,
         "spread_pips": 1.5 if is_jpy else 1.2,  # typical spread
     }

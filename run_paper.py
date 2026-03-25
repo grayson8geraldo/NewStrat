@@ -45,8 +45,8 @@ def main() -> None:
         "--symbols", default="EURUSD,GBPUSD",
         help="Comma-separated list of instruments (default: EURUSD,GBPUSD)",
     )
-    parser.add_argument("--balance", type=float, default=10_000, help="Initial virtual balance (default: 10000)")
-    parser.add_argument("--risk", type=float, default=1.0, help="Risk %% per trade (default: 1.0)")
+    parser.add_argument("--balance", type=float, default=200, help="Initial virtual balance (default: 200)")
+    parser.add_argument("--risk", type=float, default=3.0, help="Risk %% per trade (default: 3.0)")
     parser.add_argument("--rr", type=float, default=2.0, help="Min reward:risk ratio (default: 2.0)")
     parser.add_argument("--htf", default="H4", help="Higher timeframe (default: H4)")
     parser.add_argument("--mtf", default="H1", help="Medium timeframe (default: H1)")

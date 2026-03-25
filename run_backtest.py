@@ -32,8 +32,8 @@ def setup_logging(verbose: bool = False) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="SMC Strategy Backtester")
     parser.add_argument("--symbol", default="EURUSD", help="Forex pair (default: EURUSD)")
-    parser.add_argument("--balance", type=float, default=10_000, help="Initial balance (default: 10000)")
-    parser.add_argument("--risk", type=float, default=1.0, help="Risk percent per trade (default: 1.0)")
+    parser.add_argument("--balance", type=float, default=200, help="Initial balance (default: 200)")
+    parser.add_argument("--risk", type=float, default=3.0, help="Risk percent per trade (default: 3.0)")
     parser.add_argument("--rr", type=float, default=2.0, help="Reward:Risk ratio (default: 2.0)")
     parser.add_argument("--htf", default="H4", help="Higher timeframe (default: H4)")
     parser.add_argument("--mtf", default="H1", help="Medium timeframe (default: H1)")
