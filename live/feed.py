@@ -48,6 +48,10 @@ _FUTURES_MAP = {
 # Merge all known symbols
 SYMBOL_MAP = {**_FOREX_MAP, **_FUTURES_MAP}
 
+ALL_FOREX = list(_FOREX_MAP.keys())
+ALL_FUTURES = list(_FUTURES_MAP.keys())
+ALL_SYMBOLS = list(SYMBOL_MAP.keys())
+
 # Yahoo interval ↔ our timeframe
 _INTERVAL_MAP = {
     "M1": "1m", "M5": "5m", "M15": "15m", "M30": "30m",

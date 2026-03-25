@@ -42,8 +42,12 @@ def main() -> None:
         epilog=__doc__,
     )
     parser.add_argument(
-        "--symbols", default="EURUSD,GBPUSD",
-        help="Comma-separated list of instruments (default: EURUSD,GBPUSD)",
+        "--symbols", default=None,
+        help="Comma-separated list of instruments (default: all Forex pairs)",
+    )
+    parser.add_argument(
+        "--all", action="store_true", dest="all_symbols",
+        help="Scan ALL instruments (Forex + Futures)",
     )
     parser.add_argument("--balance", type=float, default=200, help="Initial virtual balance (default: 200)")
     parser.add_argument("--risk", type=float, default=3.0, help="Risk %% per trade (default: 3.0)")
@@ -77,7 +81,15 @@ def main() -> None:
     cfg.ltf = args.ltf
     cfg.swing_period = args.swing_period
 
-    symbols = [s.strip().upper() for s in args.symbols.split(",")]
+    from live.feed import ALL_FOREX, ALL_SYMBOLS
+
+    if args.symbols:
+        symbols = [s.strip().upper() for s in args.symbols.split(",")]
+    elif args.all_symbols:
+        symbols = ALL_SYMBOLS
+    else:
+        # Default: all Forex pairs
+        symbols = ALL_FOREX
 
     # Reset if requested
     if args.reset:
